@@ -32,13 +32,12 @@ export default function App() {
       setCurrentBearImg(watchBearImgs[index])
     } else if (currentFocus === "PASSWORD") {
       if (showPassword) {
-        const index = Math.min(Math.floor(((values.password.length * 8) / 400) * watchBearImgs.length - 1), watchBearImgs.length - 1)
-        setCurrentBearImg(watchBearImgs[index])
+        setCurrentBearImg(watchBearImgs[watchBearImgs.length - 1])
       } else {
         hideBearImgs.forEach((img, index) => setTimeout(() => setCurrentBearImg(img), index * 50));
       }
     }
-  }, [currentFocus, hideBearImgs, watchBearImgs, values.email.length, values.password.length, showPassword])
+  }, [currentFocus, hideBearImgs, watchBearImgs, values.email.length, showPassword])
 
 
   return (
